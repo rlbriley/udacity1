@@ -1,10 +1,10 @@
-import sys; print sys.path
-import flask
-from flask import Flask
-from flask import json
-import logging
 import datetime
+import logging
+import sys
 from datetime import timezone
+
+import flask
+from flask import Flask, json
 
 app = Flask(__name__)
 timeStart = datetime.datetime.now(timezone.utc)
@@ -60,4 +60,3 @@ if __name__ == "__main__":
     app.run(host='0.0.0.0')
     #app.run(host='0.0.0.0', port=8080)
     app.logger.debug('app application finished')
-
