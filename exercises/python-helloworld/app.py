@@ -7,9 +7,9 @@ from flask import Flask, json
 
 app = Flask(__name__)
 time_start = datetime.datetime.now(timezone.utc)
-main_cnt = 0
-status_cnt = 0
-metrics_cnt = 0
+main_cnt = 0     # pylint: disable-msg=C0103
+status_cnt = 0   # pylint: disable-msg=C0103
+metrics_cnt = 0  # pylint: disable-msg=C0103
 
 # Stream logs to a file, and set the default log level to DEBUG
 logging.basicConfig(level = logging.DEBUG,
