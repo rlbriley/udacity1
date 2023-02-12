@@ -1,10 +1,11 @@
+import sys; print sys.path
+import flask
 from flask import Flask
 from flask import json
 import logging
 import datetime
 from datetime import timezone
 
-from flask import Flask
 app = Flask(__name__)
 timeStart = datetime.datetime.now(timezone.utc)
 mainCount=0
@@ -12,7 +13,6 @@ statusCount=0
 metricsCount=0
 
 # Stream logs to a file, and set the default log level to DEBUG
-#logging.basicConfig(filename='app.log',level=logging.DEBUG,format='%(asctime)s - %(levelname)-8s - %(message)s' )
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(levelname)-8s - %(message)s' )
 
 
@@ -56,8 +56,8 @@ def metrics():
     return response
 
 if __name__ == "__main__":
-  app.logger.debug('app application starting')
-  app.run(host='0.0.0.0')
-  #app.run(host='0.0.0.0', port=8080)
-  app.logger.debug('app application finished')
+    app.logger.debug('app application starting')
+    app.run(host='0.0.0.0')
+    #app.run(host='0.0.0.0', port=8080)
+    app.logger.debug('app application finished')
 
