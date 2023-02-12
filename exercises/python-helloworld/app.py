@@ -45,12 +45,12 @@ def status():
 def metrics():
     global metrics_cnt
     metrics_cnt += 1
-    timeCurrent = datetime.datetime.now(timezone.utc)
+    current_time = datetime.datetime.now(timezone.utc)
     response = app.response_class(
         response = json.dumps({"status":"success",
             "code": 0,
             "data":{"main_cnt":main_cnt,"status_cnt":status_cnt,"metrics_cnt":metrics_cnt},
-            "uptime":str(timeCurrent-time_start)}),
+            "uptime":str(current_time-time_start)}),
         status = 200,
         mimetype = 'application/json'
     )
