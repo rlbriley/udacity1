@@ -1,33 +1,35 @@
 import datetime
 import logging
-import sys
 from datetime import timezone
 
-import flask
 from flask import Flask, json
 
+# Test application for UDACITY class
 app = Flask(__name__)
-timeStart = datetime.datetime.now(timezone.utc)
-mainCount=0
-statusCount=0
-metricsCount=0
+time_start = datetime.datetime.now(timezone.utc)
+main_cnt=0
+status_cnt=0
+metrics_cnt=0
 
 # Stream logs to a file, and set the default log level to DEBUG
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s - %(levelname)-8s - %(message)s' )
 
 
+# default REST route
 @app.route("/")
 def hello():
-    global mainCount
-    mainCount+=1
+    global main_cnt
+    main_cnt+=1
     # Logging a CUSTOM message
     app.logger.info('Main request successful')
     return "Hello World!"
 
+# status REST route.
+# Will return "OK - healthy" if the application is running
 @app.route("/status")
 def status():
-    global statusCount
-    statusCount+=1
+    global status_cnt
+    status_cnt+=1
     response = app.response_class(
         response=json.dumps({"result":"OK - healthy"}),
         status=200,
@@ -36,19 +38,22 @@ def status():
     app.logger.info('status request successful response=' + json.dumps(response.json))
     return response
 
+# metrics REST route.
+# will return the number of times each endpoint has been accessed. Plus the uptime for the
+# application.
 @app.route("/metrics")
 def metrics():
-    global mainCount
-    global statusCount
-    global metricsCount
-    global timeStart
-    metricsCount+=1
+    global main_cnt
+    global status_cnt
+    global metrics_cnt
+    global time_start
+    metrics_cnt+=1
     timeCurrent=datetime.datetime.now(timezone.utc)
     response = app.response_class(
         response=json.dumps({"status":"success",
             "code": 0,
-            "data":{"MainCount":mainCount,"StatusCount":statusCount,"MetricsCount":metricsCount},
-            "uptime":str(timeCurrent-timeStart)}),
+            "data":{"main_cnt":main_cnt,"status_cnt":status_cnt,"metrics_cnt":metrics_cnt},
+            "uptime":str(timeCurrent-time_start)}),
         status=200,
         mimetype='application/json'
     )
