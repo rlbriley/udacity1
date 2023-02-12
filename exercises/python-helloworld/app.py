@@ -1,10 +1,10 @@
+# Test application for UDACITY class
 import datetime
 import logging
 from datetime import timezone
 
 from flask import Flask, json
 
-# Test application for UDACITY class
 app = Flask(__name__)
 time_start = datetime.datetime.now(timezone.utc)
 main_cnt=0
@@ -43,10 +43,7 @@ def status():
 # application.
 @app.route("/metrics")
 def metrics():
-    global main_cnt
-    global status_cnt
     global metrics_cnt
-    global time_start
     metrics_cnt+=1
     timeCurrent=datetime.datetime.now(timezone.utc)
     response = app.response_class(
