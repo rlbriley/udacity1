@@ -4,3 +4,4 @@
 .myvenv/
 __pycache__/
 .vagrant/
+exercises/python-helloworld/app.log
