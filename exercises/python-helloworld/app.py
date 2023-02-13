@@ -20,7 +20,6 @@ logging.basicConfig(level = logging.DEBUG,
 @app.route("/")
 def hello():
     '''default REST route'''
-    global main_cnt
     main_cnt += 1
     # Logging a CUSTOM message
     app.logger.info('Main request successful')
@@ -34,7 +33,6 @@ def status():
     status REST route.
     Will return "OK - healthy" if the application is running
     '''
-    global status_cnt
     status_cnt += 1
     response = app.response_class(
         response = json.dumps({"result":"OK - healthy"}),
@@ -54,7 +52,6 @@ def metrics():
     will return the number of times each endpoint has been accessed. Plus the uptime for the
     application.
     '''
-    global metrics_cnt
     metrics_cnt += 1
     current_time = datetime.datetime.now(timezone.utc)
     response = app.response_class(
