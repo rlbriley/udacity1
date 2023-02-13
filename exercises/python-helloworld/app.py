@@ -1,5 +1,6 @@
 '''Test application for UDACITY class'''
 # pylint: disable-msg=C0103
+# pylint: disable-msg=W0603
 import datetime
 import logging
 from datetime import timezone
