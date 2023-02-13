@@ -43,7 +43,7 @@ def status():
         status = 200,
         mimetype = 'application/json'
     )
-    log.info('status request successful response=' + json.dumps(response.json))
+    log.info('status request successful response=%s', json.dumps(response.json))
     return response
 
 # metrics REST route.
@@ -67,7 +67,7 @@ def metrics():
         status = 200,
         mimetype = 'application/json'
     )
-    log.debug('metrics request successful response=' + json.dumps(response.json))
+    log.debug('metrics request successful response=%s', json.dumps(response.json))
     return response
 
 if __name__ == "__main__":
