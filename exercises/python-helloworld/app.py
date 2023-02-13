@@ -16,6 +16,7 @@ metrics_cnt = 0
 # Stream logs to a file, and set the default log level to DEBUG
 logging.basicConfig(level = logging.DEBUG,
                     format = '%(asctime)s - %(levelname)-8s - %(message)s' )
+log = logging.getLogger(__name__)
 
 # default REST route
 @app.route("/")
@@ -24,7 +25,7 @@ def hello():
     global main_cnt
     main_cnt += 1
     # Logging a CUSTOM message
-    app.logger.info('Main request successful')
+    log.info('Main request successful')
     return "Hello World!"
 
 # status REST route.
@@ -42,7 +43,7 @@ def status():
         status = 200,
         mimetype = 'application/json'
     )
-    app.logger.info('status request successful response=' + json.dumps(response.json))
+    log.info('status request successful response=' + json.dumps(response.json))
     return response
 
 # metrics REST route.
@@ -66,13 +67,13 @@ def metrics():
         status = 200,
         mimetype = 'application/json'
     )
-    app.logger.debug('metrics request successful response=' + json.dumps(response.json))
+    log.debug('metrics request successful response=' + json.dumps(response.json))
     return response
 
 if __name__ == "__main__":
-    app.logger.debug('app application starting')
+    log.debug('app application starting')
     app.run(host = '0.0.0.0')
     #app.run(host='0.0.0.0', port=8080)
-    app.logger.debug('app application finished')
+    log.debug('app application finished')
 
 # pylint: enable-msg=C0103
