@@ -42,3 +42,6 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: rbriley/python-helloworld:latest
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
