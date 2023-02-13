@@ -1,4 +1,5 @@
-# Test application for UDACITY class
+'''Test application for UDACITY class'''
+# pylint: disable-msg=C0103
 import datetime
 import logging
 from datetime import timezone
@@ -7,9 +8,9 @@ from flask import Flask, json
 
 app = Flask(__name__)
 time_start = datetime.datetime.now(timezone.utc)
-main_cnt = 0     # pylint: disable-msg=C0103
-status_cnt = 0   # pylint: disable-msg=C0103
-metrics_cnt = 0  # pylint: disable-msg=C0103
+main_cnt = 0
+status_cnt = 0
+metrics_cnt = 0
 
 # Stream logs to a file, and set the default log level to DEBUG
 logging.basicConfig(level = logging.DEBUG,
@@ -18,6 +19,7 @@ logging.basicConfig(level = logging.DEBUG,
 # default REST route
 @app.route("/")
 def hello():
+    '''default REST route'''
     global main_cnt
     main_cnt += 1
     # Logging a CUSTOM message
@@ -28,6 +30,10 @@ def hello():
 # Will return "OK - healthy" if the application is running
 @app.route("/status")
 def status():
+    '''
+    status REST route.
+    Will return "OK - healthy" if the application is running
+    '''
     global status_cnt
     status_cnt += 1
     response = app.response_class(
@@ -43,6 +49,11 @@ def status():
 # application.
 @app.route("/metrics")
 def metrics():
+    '''
+    metrics REST route.
+    will return the number of times each endpoint has been accessed. Plus the uptime for the
+    application.
+    '''
     global metrics_cnt
     metrics_cnt += 1
     current_time = datetime.datetime.now(timezone.utc)
@@ -62,3 +73,5 @@ if __name__ == "__main__":
     app.run(host = '0.0.0.0')
     #app.run(host='0.0.0.0', port=8080)
     app.logger.debug('app application finished')
+
+# pylint: enable-msg=C0103
