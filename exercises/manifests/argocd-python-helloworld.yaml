@@ -1,0 +1,19 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: python-helloworld
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    # path to the folder with the YAML manifests
+    path: project/argocd
+    repoURL: https://github.com//rbriley/udacity1
+    targetRevision: HEAD
+  # Sync policy
+  syncPolicy: {}
+...
