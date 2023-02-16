@@ -1,7 +1,7 @@
 FROM python:3.11
 # Maintainer label is deprecated.
 LABEL maintainer="Richard L. Briley Jr."
-LABEL version="0.1.1"
+LABEL version="0.1.2"
 COPY ./exercises/python-helloworld /app
 WORKDIR /app
 EXPOSE 5111:5000
