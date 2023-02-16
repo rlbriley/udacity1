@@ -72,7 +72,7 @@ def metrics():
 
 if __name__ == "__main__":
     log.debug('app application starting')
-    #app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=5000)
     log.debug('app application finished')
 
 # pylint: enable-msg=C0103
