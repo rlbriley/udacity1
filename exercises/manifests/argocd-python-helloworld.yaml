@@ -12,7 +12,7 @@ spec:
   source:
     # path to the folder with the YAML manifests
     path: project/argocd
-    repoURL: https://github.com//rbriley/udacity1
+    repoURL: https://github.com/rlbriley/udacity1
     targetRevision: HEAD
   # Sync policy
   syncPolicy: {}

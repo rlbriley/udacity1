@@ -1,8 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: python-helloworld
   name: python-helloworld
   namespace: default
 spec:
@@ -20,6 +18,7 @@ spec:
     metadata:
       labels:
         app: python-helloworld
+        tag: latest
     spec:
       containers:
       - image: rbriley/python-helloworld:latest
