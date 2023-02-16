@@ -1,3 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-helloworld-svc
+  labels:
+    run: python-helloworld
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  - port: 443
+    protocol: TCP
+    name: https
+  selector:
+    run: python-helloworld
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
