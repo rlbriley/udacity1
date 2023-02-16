@@ -41,6 +41,7 @@ jobs:
           file: ./exercises/python-helloworld/Dockerfile
           platforms: linux/amd64
           push: true
+          # The image gets pushed with this tag.
           tags: rbriley/python-helloworld:1.0.3
 
       - name: Image digest
