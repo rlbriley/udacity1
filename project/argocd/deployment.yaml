@@ -49,18 +49,21 @@ spec:
           requests:
             cpu: 50m
             memory: 256Mi
+
         ports:
-          - name: python-helloworld-port
+          - name: helloworld-port
             containerPort: 5000
             hostPort: 5000
+
         readinessProbe:
           tcpSocket:
-            port: 5000
+            port: helloworld-port
           initialDelaySeconds: 5
           periodSeconds: 10
+
         livenessProbe:
           httpGet:
             path: /
-            port: 5000
+            port: helloworld-port
           initialDelaySeconds: 10
           periodSeconds: 15
