@@ -31,3 +31,9 @@ spec:
             memory: 256Mi
         ports:
           - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 15
