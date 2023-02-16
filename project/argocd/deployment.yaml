@@ -8,7 +8,6 @@ spec:
   selector:
     matchLabels:
       app: python-helloworld
-      tag: '1.0.3'
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,10 +17,9 @@ spec:
     metadata:
       labels:
         app: python-helloworld
-        tag: '1.0.3'
     spec:
       containers:
-      - image: rbriley/python-helloworld
+      - image: rbriley/python-helloworld:1.0.3
         imagePullPolicy: IfNotPresent
         name: python-helloworld
         resources:
