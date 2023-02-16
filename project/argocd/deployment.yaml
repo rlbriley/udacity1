@@ -19,7 +19,7 @@ spec:
         app: python-helloworld
     spec:
       containers:
-      - image: rbriley/python-helloworld:1.0.3
+      - image: rbriley/python-helloworld
         imagePullPolicy: IfNotPresent
         name: python-helloworld
         resources:
