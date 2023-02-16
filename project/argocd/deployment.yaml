@@ -12,6 +12,7 @@ spec:
     protocol: TCP
     name: http
   - port: 443
+    targetPort: 5000
     protocol: TCP
     name: https
   selector:
@@ -49,10 +50,17 @@ spec:
             cpu: 50m
             memory: 256Mi
         ports:
-          - containerPort: 5000
+          - name: python-helloworld-port
+            containerPort: 5000
+            hostPort: 5000
+        readinessProbe:
+          tcpSocket:
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /
             port: 5000
-          initialDelaySeconds: 5
+          initialDelaySeconds: 10
           periodSeconds: 15
