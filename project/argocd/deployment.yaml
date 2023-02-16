@@ -19,7 +19,10 @@ spec:
         app: python-helloworld
     spec:
       containers:
-      - image: rbriley/python-helloworld
+      # lesson learned if you remove the version here it will attempt to pull
+      # the 'latest' tag. 'latest' will only exist if you actually created or
+      # updated the tag with an image. Much safer to specify a specific version.
+      - image: rbriley/python-helloworld:1.0.3
         imagePullPolicy: IfNotPresent
         name: python-helloworld
         resources:
