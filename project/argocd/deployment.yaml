@@ -29,7 +29,6 @@ spec:
         ports:
           - name: helloworld-port
             containerPort: 5000
-            hostPort: 34000
             protocol: TCP
 
         resources:
