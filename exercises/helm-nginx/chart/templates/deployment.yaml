@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ .Values.appname }}
     tag: {{ .Values.imageTag }}
-  name: {{ .Values.appname }}-{{ .Values.imageTag }}
+  name: {{ .Values.appname }}-{{ .Values.namespace }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
