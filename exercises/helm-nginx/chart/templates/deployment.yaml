@@ -27,5 +27,5 @@ spec:
       containers:
       - image: {{ .Values.imageName }}:{{ .Values.imageTag }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
-        name: {{ .Values.appname }}-{{ .Values.imageTag }}
+        name: {{ .Values.appname }}-{{ .Values.namespace }}
 ...
