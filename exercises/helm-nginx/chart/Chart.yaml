@@ -6,7 +6,7 @@ keywords:
   - rlb
   - nginx
   - alpine
-version: 1.0.0
+version: 1.0.1
 maintainers:
   - name: rbriley
     email: rlbrileyjr@gmail.com
