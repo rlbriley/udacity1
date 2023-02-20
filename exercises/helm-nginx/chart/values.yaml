@@ -12,7 +12,7 @@ servicePort: "8111"
 serviceTargetPort: "8111"
 serviceType: ClusterIP
 
-configMapProperties: "version=alpine"
+configMapProperties: "version: alpine"
 
 resourcesCpu: 50m
 resourcesMem: 256Mi
