@@ -1,0 +1,13 @@
+---
+namespace: prod
+
+replicaCount: 2
+
+imageTag: "1.17.0"
+
+servicePort: "80"
+
+configMapProperties: "version=1.17.0"
+
+resourcesCpu: 70m
+...

@@ -1,0 +1,11 @@
+---
+namespace: staging
+
+replicaCount: 1
+
+imageTag: "1.18.0"
+
+configMapProperties: "version=1.18.0"
+
+resourcesMem: 128Mi
+...

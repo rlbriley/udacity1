@@ -1,0 +1,19 @@
+---
+namespace: demo
+
+appname: nginx
+imageName: nginx
+imageTag: alpine
+imagePullPolicy: IfNotPresent
+
+replicaCount: 3
+
+servicePort: "8111"
+serviceTargetPort: "8111"
+serviceType: ClusterIP
+
+configMapProperties: "version=alpine"
+
+resourcesCpu: 50m
+resourcesMem: 256Mi
+...
