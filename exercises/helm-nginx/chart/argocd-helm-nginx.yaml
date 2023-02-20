@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -15,3 +16,4 @@ spec:
     path: exercises/helm-nginx/chart
     repoURL: https://github.com/rlbriley/udacity1
     targetRevision: HEAD
+...
